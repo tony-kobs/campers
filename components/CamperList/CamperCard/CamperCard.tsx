@@ -8,6 +8,13 @@ type PropsCamperCard = {
   priority?: boolean;
 };
 
+function formatLabel(value: string) {
+  return value
+    .split('_')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
 export default function CamperCard({
   camper,
   priority = false,
@@ -30,16 +37,50 @@ export default function CamperCard({
           </div>
           <div className={css.camperCardRating}>
             <p>
+              <svg
+                className={css.star}
+                width={15}
+                height={14}
+                aria-hidden="true"
+              >
+                <use href="/sprite.svg#star" />
+              </svg>
               {camper.rating} ({camper.totalReviews} Reviews)
             </p>
-            <p className={css.camperCardLocation}>{camper.location}</p>
+
+            <p className={css.camperCardLocation}>
+              <svg
+                className={css.icon}
+                width={16}
+                height={16}
+                aria-hidden="true"
+              >
+                <use href="/sprite.svg#map" />
+              </svg>
+              {camper.location}
+            </p>
           </div>
         </div>
         <p className={css.camperCardDescription}>{camper.description}</p>
         <ul className={css.camperCardFeatures}>
-          <li className={css.camperCardEngine}>{camper.engine}</li>
-          <li className={css.camperCardTransmission}>{camper.transmission}</li>
-          <li className={css.camperCardForm}>{camper.form}</li>
+          <li className={css.camperCardEngine}>
+            <svg className={css.icon} width={20} height={20} aria-hidden="true">
+              <use href="/sprite.svg#pump" />
+            </svg>
+            {formatLabel(camper.engine)}
+          </li>
+          <li className={css.camperCardTransmission}>
+            <svg className={css.icon} width={20} height={20} aria-hidden="true">
+              <use href="/sprite.svg#scheme" />
+            </svg>
+            {formatLabel(camper.transmission)}
+          </li>
+          <li className={css.camperCardForm}>
+            <svg className={css.icon} width={20} height={20} aria-hidden="true">
+              <use href="/sprite.svg#car" />
+            </svg>
+            {formatLabel(camper.form)}
+          </li>
         </ul>
         <Link href={`/catalog/${camper.id}`} className={css.camperCardLink}>
           Show more
