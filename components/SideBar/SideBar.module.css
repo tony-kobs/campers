@@ -50,3 +50,75 @@
 .locationInput:focus::placeholder {
   color: transparent;
 }
+
+.filtersTitle {
+  margin-bottom: 24px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--main);
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+.filterGroup + .filterGroup {
+  margin-top: 24px;
+}
+
+.filterLegend {
+  margin-bottom: 8px;
+  color: var(--gray);
+}
+
+.filterOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--main);
+  cursor: pointer;
+}
+
+.radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.radioIcon,
+.radioIconChecked {
+  display: block;
+  flex-shrink: 0;
+  color: var(--text);
+}
+
+.radioIconChecked {
+  display: none;
+}
+
+.radio:checked + .radioIcon {
+  display: none;
+}
+
+.radio:checked + .radioIcon + .radioIconChecked {
+  display: block;
+}
+
+.radio:focus-visible + .radioIcon,
+.radio:focus-visible + .radioIcon + .radioIconChecked {
+  outline: 1px solid var(--green-hover);
+  outline-offset: 5px;
+  border-radius: 50%;
+}
