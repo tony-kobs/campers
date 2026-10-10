@@ -1,11 +1,12 @@
 'use client';
 
 import { getCampers } from '@/services/campers';
-import { useInfiniteQuery } from '@tanstack/react-query';
+import { keepPreviousData, useInfiniteQuery } from '@tanstack/react-query';
 import CamperCard from './CamperCard/CamperCard';
 import css from './CamperList.module.css';
 import { useEffect, useRef } from 'react';
 import { GetCampersParams } from '@/types/camper';
+import Loader from '../Loader/Loader';
 
 type Props = {
   filters: GetCampersParams;
@@ -19,16 +20,17 @@ export default function CamperList({ filters }: Props) {
 
   const {
     data,
-    isLoading,
     isError,
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage,
+    isFetching,
   } = useInfiniteQuery({
     queryKey: ['campers', { perPage, ...filters }],
     queryFn: ({ pageParam }) =>
       getCampers({ ...filters, page: pageParam, perPage }),
     initialPageParam: 1,
+    placeholderData: keepPreviousData,
     getNextPageParam: (lastPage) =>
       lastPage.page < lastPage.totalPages ? lastPage.page + 1 : undefined,
   });
@@ -48,28 +50,30 @@ export default function CamperList({ filters }: Props) {
     fetchNextPage();
   };
 
-  if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Something went wrong</div>;
 
   return (
-    <div className={css.camperListContainer}>
-      <ul ref={listRef} className={css.camperListWrapper}>
-        {campers.map((camper, index) => (
-          <li key={camper.id} className={css.camperListItem}>
-            <CamperCard camper={camper} priority={index === 0} />
-          </li>
-        ))}
-      </ul>
-      {hasNextPage && (
-        <button
-          type="button"
-          onClick={handleLoadMore}
-          disabled={isFetchingNextPage}
-          className={css.loadMoreButton}
-        >
-          Load more
-        </button>
-      )}
-    </div>
+    <>
+      {isFetching && !isFetchingNextPage && <Loader />}
+      <div className={css.camperListContainer}>
+        <ul ref={listRef} className={css.camperListWrapper}>
+          {campers.map((camper, index) => (
+            <li key={camper.id} className={css.camperListItem}>
+              <CamperCard camper={camper} priority={index === 0} />
+            </li>
+          ))}
+        </ul>
+        {hasNextPage && (
+          <button
+            type="button"
+            onClick={handleLoadMore}
+            disabled={isFetchingNextPage}
+            className={css.loadMoreButton}
+          >
+            Load more
+          </button>
+        )}
+      </div>
+    </>
   );
 }
