@@ -2,9 +2,3 @@
   padding-top: 48px;
   padding-bottom: 48px;
 }
-
-.catalogPageContent {
-  display: flex;
-  gap: 65px;
-  align-items: flex-start;
-}

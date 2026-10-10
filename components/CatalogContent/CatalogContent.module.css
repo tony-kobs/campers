@@ -1,0 +1,5 @@
+.catalogPageContent {
+  display: flex;
+  gap: 65px;
+  align-items: flex-start;
+}

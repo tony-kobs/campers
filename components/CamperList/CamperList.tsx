@@ -5,10 +5,15 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import CamperCard from './CamperCard/CamperCard';
 import css from './CamperList.module.css';
 import { useEffect, useRef } from 'react';
+import { GetCampersParams } from '@/types/camper';
+
+type Props = {
+  filters: GetCampersParams;
+};
 
 const perPage = 4;
 
-export default function CamperList() {
+export default function CamperList({ filters }: Props) {
   const listRef = useRef<HTMLUListElement>(null);
   const scrollToIndex = useRef<number | null>(null);
 
@@ -20,8 +25,9 @@ export default function CamperList() {
     hasNextPage,
     isFetchingNextPage,
   } = useInfiniteQuery({
-    queryKey: ['campers', { perPage }],
-    queryFn: ({ pageParam }) => getCampers({ page: pageParam, perPage }),
+    queryKey: ['campers', { perPage, ...filters }],
+    queryFn: ({ pageParam }) =>
+      getCampers({ ...filters, page: pageParam, perPage }),
     initialPageParam: 1,
     getNextPageParam: (lastPage) =>
       lastPage.page < lastPage.totalPages ? lastPage.page + 1 : undefined,
