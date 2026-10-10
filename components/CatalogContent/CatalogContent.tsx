@@ -8,11 +8,17 @@ import css from './CatalogContent.module.css';
 
 export default function CatalogContent() {
   const [filters, setFilters] = useState<GetCampersParams>({});
+  const [formKey, setFormKey] = useState(0);
+
+  const clearFilters = () => {
+    setFilters({});
+    setFormKey((key) => key + 1);
+  };
 
   return (
     <div className={css.catalogPageContent}>
-      <SideBar onSearch={setFilters} onClear={() => setFilters({})} />
-      <CamperList filters={filters} />
+      <SideBar key={formKey} onSearch={setFilters} onClear={clearFilters} />
+      <CamperList filters={filters} onClear={clearFilters} />
     </div>
   );
 }

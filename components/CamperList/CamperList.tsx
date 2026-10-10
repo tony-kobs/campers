@@ -7,14 +7,16 @@ import css from './CamperList.module.css';
 import { useEffect, useRef } from 'react';
 import { GetCampersParams } from '@/types/camper';
 import Loader from '../Loader/Loader';
+import EmptyState from './EmptyState/EmptyState';
 
 type Props = {
   filters: GetCampersParams;
+  onClear: () => void;
 };
 
 const perPage = 4;
 
-export default function CamperList({ filters }: Props) {
+export default function CamperList({ filters, onClear }: Props) {
   const listRef = useRef<HTMLUListElement>(null);
   const scrollToIndex = useRef<number | null>(null);
 
@@ -51,10 +53,13 @@ export default function CamperList({ filters }: Props) {
   };
 
   if (isError) return <div>Something went wrong</div>;
-
+  if (!isFetching && campers.length === 0) {
+    return <EmptyState onClear={onClear} />;
+  }
   return (
     <>
       {isFetching && !isFetchingNextPage && <Loader />}
+
       <div className={css.camperListContainer}>
         <ul ref={listRef} className={css.camperListWrapper}>
           {campers.map((camper, index) => (
