@@ -1,3 +1,12 @@
+.camperListContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  width: 100%;
+  max-width: 888px;
+}
+
 .camperListWrapper {
   display: flex;
   flex-direction: column;
@@ -7,4 +16,26 @@
 .camperListItem {
   width: 100%;
   max-width: 888px;
+}
+
+.loadMoreButton {
+  display: block;
+  margin: 0 auto;
+  border: 1px solid var(--gray-light);
+  border-radius: 200px;
+  padding: 16px 32px;
+
+  letter-spacing: -0.01em;
+  color: var(--main);
+
+  transition: border-color 0.3s ease;
+}
+
+.loadMoreButton:hover,
+.loadMoreButton:focus {
+  border-color: var(--green-hover);
+}
+
+.loadMoreButton:active {
+  border-color: var(--green-active);
 }
