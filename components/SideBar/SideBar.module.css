@@ -1,0 +1,52 @@
+.sideBar {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 360px;
+  padding: 24px;
+  border-radius: 20px;
+
+  background: var(--inputs);
+}
+
+.location {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.locationLabel {
+  color: var(--gray);
+}
+
+.locationField {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  border-radius: 12px;
+  padding: 16px 20px 16px 20px;
+  background: var(--white);
+}
+
+.icon {
+  display: block;
+  flex-shrink: 0;
+  color: var(--main);
+}
+
+.locationInput {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font: inherit;
+  color: var(--main);
+}
+
+.locationInput::placeholder {
+  color: var(--main);
+}
+
+.locationInput:focus::placeholder {
+  color: transparent;
+}
