@@ -26,7 +26,7 @@ export default function CamperCard({
         <div className={css.camperCardHeader}>
           <div className={css.camperCardTitle}>
             <h2>{camper.name}</h2>
-            <p className={css.camperCardPrice}>{camper.price}</p>
+            <p className={css.camperCardPrice}>&euro;{camper.price}</p>
           </div>
           <div className={css.camperCardRating}>
             <p>
