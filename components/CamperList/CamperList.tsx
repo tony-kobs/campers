@@ -2,6 +2,7 @@
 
 import { getCampers } from '@/services/campers';
 import { useQuery } from '@tanstack/react-query';
+import CamperCard from './CamperCard/CamperCard';
 
 const params = { page: 1, perPage: 4 };
 
@@ -16,9 +17,9 @@ export default function CamperList() {
 
   return (
     <ul>
-      {data?.campers.map((camper) => (
+      {data?.campers.map((camper, index) => (
         <li key={camper.id}>
-          {camper.name} - {camper.price}
+          <CamperCard camper={camper} priority={index === 0} />
         </li>
       ))}
     </ul>

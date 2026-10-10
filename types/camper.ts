@@ -22,6 +22,7 @@ export type Camper = {
   price: number;
   rating: number;
   location: string;
+  description: string;
   form: CamperForm;
   length: string;
   width: string;
