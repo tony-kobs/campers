@@ -46,6 +46,11 @@ img {
 
 html {
   height: 100%;
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Edge, Safari */
 }
 
 html,
@@ -67,4 +72,13 @@ body {
   background: var(--white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 1px solid var(--green-hover);
+  outline-offset: 5px;
 }

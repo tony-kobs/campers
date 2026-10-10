@@ -38,4 +38,15 @@
   line-height: 150%;
   letter-spacing: -0.01em;
   color: var(--white);
+
+  transition: background 0.3s ease;
+}
+
+.heroButton:hover,
+.heroButton:focus {
+  background: var(--green-hover);
+}
+
+.heroButton:active {
+  background: var(--grey-green);
 }
