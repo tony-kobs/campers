@@ -286,6 +286,22 @@ export default function SideBar() {
           </label>
         </fieldset>
       </div>
+      <div className={css.actions}>
+        <button type="button" className={css.searchButton}>
+          Search
+        </button>
+        <button type="button" className={css.clearButton}>
+          <svg
+            className={css.clearIcon}
+            width={24}
+            height={24}
+            aria-hidden="true"
+          >
+            <use href="/sprite.svg#close" />
+          </svg>
+          Clear filters
+        </button>
+      </div>
     </aside>
   );
 }
