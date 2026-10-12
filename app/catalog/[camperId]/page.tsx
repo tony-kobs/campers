@@ -24,7 +24,7 @@ export default async function CamperPage({ params }: CamperPageProps) {
           <CamperGallery name={camper.name} gallery={camper.gallery} />
           <CamperDescription camper={camper} />
           <CamperReviews reviews={reviews} />
-          <BookingForm />
+          <BookingForm camperId={camperId} />
         </div>
       </Container>
     </main>

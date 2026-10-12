@@ -74,3 +74,12 @@ export type Review = {
   comment: string;
   createdAt: string;
 };
+
+export type BookingRequest = {
+  name: string;
+  email: string;
+};
+
+export type BookingResponse = {
+  message: string;
+};

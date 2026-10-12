@@ -10,10 +10,13 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.104.1",
+    "formik": "^2.4.9",
     "modern-normalize": "^3.0.1",
     "next": "16.4.0",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "sonner": "^2.0.8",
+    "yup": "^1.7.1"
   },
   "devDependencies": {
     "@types/node": "^20",

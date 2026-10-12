@@ -48,3 +48,23 @@ export async function getReviews(id: string): Promise<Review[]> {
 
   return response.json();
 }
+
+export async function createBookingRequest(
+  id: string,
+  body: BookingRequest,
+): Promise<BookingResponse> {
+  const response = await fetch(`${BASE_URL}/campers/${id}/booking-requests`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to send booking request');
+  }
+
+  return response.json();
+}
