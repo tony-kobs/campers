@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import CamperList from '@/components/CamperList/CamperList';
-import SideBar from '@/components/SideBar/SideBar';
+import CamperList from '@/components/CatalogContent/CamperList/CamperList';
+import SideBar from '@/components/CatalogContent/SideBar/SideBar';
 import type { GetCampersParams } from '@/types/camper';
 import css from './CatalogContent.module.css';
 

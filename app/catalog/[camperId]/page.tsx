@@ -3,7 +3,7 @@ import CamperGallery from '@/components/CamperDetails/CamperGallery/CamperGaller
 import CamperDescription from '@/components/CamperDetails/CamperDescription/CamperDescription';
 import CamperReviews from '@/components/CamperDetails/CamperReviews/CamperReviews';
 import BookingForm from '@/components/CamperDetails/BookingForm/BookingForm';
-import { getCamper } from '@/services/campers';
+import { getCamper, getReviews } from '@/services/campers';
 import css from './page.module.css';
 
 type CamperPageProps = {
@@ -12,7 +12,10 @@ type CamperPageProps = {
 
 export default async function CamperPage({ params }: CamperPageProps) {
   const { camperId } = await params;
-  const camper = await getCamper(camperId);
+  const [camper, reviews] = await Promise.all([
+    getCamper(camperId),
+    getReviews(camperId),
+  ]);
 
   return (
     <main className={css.page}>
@@ -20,7 +23,7 @@ export default async function CamperPage({ params }: CamperPageProps) {
         <div className={css.layout}>
           <CamperGallery name={camper.name} gallery={camper.gallery} />
           <CamperDescription camper={camper} />
-          <CamperReviews />
+          <CamperReviews reviews={reviews} />
           <BookingForm />
         </div>
       </Container>

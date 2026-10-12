@@ -6,7 +6,7 @@ import CamperCard from './CamperCard/CamperCard';
 import css from './CamperList.module.css';
 import { useEffect, useRef } from 'react';
 import { GetCampersParams } from '@/types/camper';
-import Loader from '../Loader/Loader';
+import Loader from '../../Loader/Loader';
 import EmptyState from './EmptyState/EmptyState';
 
 type Props = {

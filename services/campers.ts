@@ -2,6 +2,7 @@ import type {
   CamperDetails,
   CampersResponse,
   GetCampersParams,
+  Review,
 } from '@/types/camper';
 
 const BASE_URL = 'https://campers-api.goit.study';
@@ -33,6 +34,16 @@ export async function getCamper(id: string): Promise<CamperDetails> {
 
   if (!response.ok) {
     throw new Error('Failed to fetch camper');
+  }
+
+  return response.json();
+}
+
+export async function getReviews(id: string): Promise<Review[]> {
+  const response = await fetch(`${BASE_URL}/campers/${id}/reviews`);
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch reviews');
   }
 
   return response.json();
