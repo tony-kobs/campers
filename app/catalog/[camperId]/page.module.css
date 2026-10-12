@@ -5,7 +5,7 @@
 
 .layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 476px;
-  gap: 24px;
+  grid-template-columns: minmax(0, 1fr) 650px;
+  gap: 88px 24px;
   align-items: start;
 }
