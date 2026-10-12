@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import Container from '@/components/Container/Container';
 import CamperGallery from '@/components/CamperDetails/CamperGallery/CamperGallery';
 import CamperDescription from '@/components/CamperDetails/CamperDescription/CamperDescription';
@@ -16,6 +17,10 @@ export default async function CamperPage({ params }: CamperPageProps) {
     getCamper(camperId),
     getReviews(camperId),
   ]);
+
+  if (!camper) {
+    notFound();
+  }
 
   return (
     <main className={css.page}>

@@ -1,4 +1,6 @@
 import type {
+  BookingRequest,
+  BookingResponse,
   CamperDetails,
   CampersResponse,
   GetCampersParams,
@@ -29,8 +31,12 @@ export async function getCampers(
   return response.json();
 }
 
-export async function getCamper(id: string): Promise<CamperDetails> {
+export async function getCamper(id: string): Promise<CamperDetails | null> {
   const response = await fetch(`${BASE_URL}/campers/${id}`);
+
+  if (response.status === 404) {
+    return null;
+  }
 
   if (!response.ok) {
     throw new Error('Failed to fetch camper');

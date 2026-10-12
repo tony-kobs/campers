@@ -21,22 +21,16 @@ export default function CamperList({ filters, onClear }: Props) {
   const listRef = useRef<HTMLUListElement>(null);
   const scrollToIndex = useRef<number | null>(null);
 
-  const {
-    data,
-    isError,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-    isFetching,
-  } = useInfiniteQuery({
-    queryKey: ['campers', { perPage, ...filters }],
-    queryFn: ({ pageParam }) =>
-      getCampers({ ...filters, page: pageParam, perPage }),
-    initialPageParam: 1,
-    placeholderData: keepPreviousData,
-    getNextPageParam: (lastPage) =>
-      lastPage.page < lastPage.totalPages ? lastPage.page + 1 : undefined,
-  });
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isFetching } =
+    useInfiniteQuery({
+      queryKey: ['campers', { perPage, ...filters }],
+      queryFn: ({ pageParam }) =>
+        getCampers({ ...filters, page: pageParam, perPage }),
+      initialPageParam: 1,
+      placeholderData: keepPreviousData,
+      getNextPageParam: (lastPage) =>
+        lastPage.page < lastPage.totalPages ? lastPage.page + 1 : undefined,
+    });
 
   const campers = data?.pages.flatMap((page) => page.campers) ?? [];
 

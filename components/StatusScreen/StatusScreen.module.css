@@ -1,0 +1,61 @@
+.page {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+}
+
+.card {
+  width: 100%;
+  max-width: 560px;
+  border: 1px solid var(--gray-light);
+  border-radius: 16px;
+  padding: 48px 32px;
+  background: var(--white);
+  text-align: center;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: var(--main);
+}
+
+.text {
+  margin-top: 8px;
+  color: var(--text);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.primary,
+.secondary {
+  border-radius: 200px;
+  padding: 16px 32px;
+  font-weight: 500;
+}
+
+.primary {
+  background: var(--grey-green);
+  color: var(--white);
+}
+
+.primary:hover {
+  background: var(--green-hover);
+}
+
+.secondary {
+  border: 1px solid var(--gray-light);
+  color: var(--main);
+}
+
+.secondary:hover {
+  border-color: var(--green-hover);
+}
