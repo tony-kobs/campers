@@ -1,4 +1,6 @@
 import type {
+  BookingRequest,
+  BookingResponse,
   CamperDetails,
   CampersResponse,
   GetCampersParams,
