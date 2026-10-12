@@ -1,0 +1,115 @@
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.titleRow {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border-radius: 16px;
+  background: var(--inputs);
+}
+
+.title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: var(--main);
+}
+
+.meta {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.meta p {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--main);
+}
+
+.price {
+  margin-top: 16px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: var(--main);
+}
+
+.description {
+  margin-top: 24px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.icon,
+.star {
+  display: block;
+  flex-shrink: 0;
+}
+
+.icon {
+  color: var(--main);
+}
+
+.star {
+  color: var(--rating);
+}
+
+.vehicle {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border-radius: 16px;
+  background: var(--inputs);
+  gap: 16px;
+}
+
+.vehicleTitle {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: var(--main);
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 0 16px 0;
+  gap: 8px;
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.badges li {
+  border-radius: 100px;
+  padding: 12px 18px;
+  font-weight: 500;
+  color: var(--main);
+  background: var(--badges);
+  mix-blend-mode: multiply;
+}
+
+.specs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.spec {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.spec dt {
+  color: var(--main);
+}
+
+.spec dd {
+  text-align: right;
+  color: var(--main);
+}
