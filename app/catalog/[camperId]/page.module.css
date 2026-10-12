@@ -1,0 +1,11 @@
+.page {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 476px;
+  gap: 24px;
+  align-items: start;
+}
