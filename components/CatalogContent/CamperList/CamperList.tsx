@@ -8,6 +8,7 @@ import { useEffect, useRef } from 'react';
 import { GetCampersParams } from '@/types/camper';
 import Loader from '../../Loader/Loader';
 import EmptyState from './EmptyState/EmptyState';
+import { toast } from 'sonner';
 
 type Props = {
   filters: GetCampersParams;
@@ -47,12 +48,15 @@ export default function CamperList({ filters, onClear }: Props) {
     item.scrollIntoView({ behavior: 'smooth', block: 'start' });
     scrollToIndex.current = null;
   }, [campers.length]);
-  const handleLoadMore = () => {
+
+  const handleLoadMore = async () => {
     scrollToIndex.current = campers.length;
-    fetchNextPage();
+    const result = await fetchNextPage();
+    if (result.isError) {
+      toast.error('Could not load more campers. Please try again.');
+    }
   };
 
-  if (isError) return <div>Something went wrong</div>;
   if (!isFetching && campers.length === 0) {
     return <EmptyState onClear={onClear} />;
   }

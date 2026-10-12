@@ -1,11 +1,11 @@
 'use client';
 
-import { useState } from 'react';
 import { Form, Formik } from 'formik';
 import { createBookingRequest } from '@/services/campers';
 import TextField from './TextField';
 import { bookingSchema, type BookingValues } from './bookingSchema';
 import css from './BookingForm.module.css';
+import { toast } from 'sonner';
 
 type BookingFormProps = {
   camperId: string;
@@ -17,8 +17,6 @@ const initialValues: BookingValues = {
 };
 
 export default function BookingForm({ camperId }: BookingFormProps) {
-  const [serverMessage, setServerMessage] = useState('');
-
   return (
     <section className={css.card}>
       <h2 className={css.title}>Book your campervan now</h2>
@@ -30,17 +28,15 @@ export default function BookingForm({ camperId }: BookingFormProps) {
         initialValues={initialValues}
         validationSchema={bookingSchema}
         onSubmit={async (values, { resetForm }) => {
-          setServerMessage('');
-
           try {
             const result = await createBookingRequest(
               camperId,
               bookingSchema.cast(values),
             );
-            setServerMessage(result.message);
+            toast.success(result.message);
             resetForm();
           } catch {
-            setServerMessage(
+            toast.error(
               'Could not send the booking request. Please try again.',
             );
           }
@@ -65,8 +61,6 @@ export default function BookingForm({ camperId }: BookingFormProps) {
           </Form>
         )}
       </Formik>
-
-      {serverMessage && <p className={css.serverMessage}>{serverMessage}</p>}
     </section>
   );
 }

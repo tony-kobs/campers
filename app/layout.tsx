@@ -4,6 +4,7 @@ import TanStackProvider from '@/components/TanStackProvider/TanStackProvider';
 import Header from '@/components/Header/Header';
 import 'modern-normalize/modern-normalize.css';
 import './globals.css';
+import { Toaster } from 'sonner';
 
 const geistInter = Inter({
   variable: '--font-inter',
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       <body>
         <TanStackProvider>
           <Header />
+          <Toaster position="top-center" richColors closeButton />
           {children}
         </TanStackProvider>
       </body>
