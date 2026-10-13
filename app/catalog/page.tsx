@@ -5,6 +5,8 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Catalog',
+  description:
+    'Filter campers by location, body type, engine, and transmission. Load more results and open a vehicle to book it.',
 };
 
 export default function Catalog() {

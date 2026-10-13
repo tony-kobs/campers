@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TravelTrucks
 
-## Getting Started
+Вебзастосунок для компанії TravelTrucks, яка здає кемпери в оренду. Користувач обирає авто на головній сторінці, фільтрує каталог і бронює конкретний кемпер.
 
-First, run the development server:
+## Основні функції
+
+- Головна сторінка з банером і переходом у каталог.
+- Каталог кемперів із фільтрами за локацією, типом кузова, двигуном і трансмісією.
+- Довантаження списку по 4 картки кнопкою Load more з урахуванням активних фільтрів.
+- Сторінка кемпера в новій вкладці: опис, галерея, відгуки з п’ятизірковою шкалою і форма бронювання.
+- Повідомлення про успішне або невдале бронювання.
+
+## Стек
+
+Next.js (App Router), TypeScript, TanStack Query, Formik, Yup, Swiper, CSS Modules.
+
+Дані надходять з [Campers API](https://campers-api.goit.study).
+
+## Встановлення та використання
+
+Потрібні Node.js 20+ і npm.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Застосунок відкривається на [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Інші команди:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+npm start
+```
 
-## Learn More
+Сторінки:
 
-To learn more about Next.js, take a look at the following resources:
+- `/` — головна
+- `/catalog` — каталог
+- `/catalog/[camperId]` — деталі кемпера
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Автор
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Antony Kobys
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Репозиторій: [github.com/tony-kobs/campers](https://github.com/tony-kobs/campers)

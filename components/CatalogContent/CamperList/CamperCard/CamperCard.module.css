@@ -10,9 +10,14 @@
   background: var(--inputs);
 }
 
+.imageWrap {
+  position: relative;
+  flex-shrink: 0;
+  width: 219px;
+  height: 240px;
+}
+
 .camperCardImage {
-  width: 100%;
-  max-width: 219px;
   object-fit: cover;
   border-radius: 16px;
 }

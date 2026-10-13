@@ -21,14 +21,16 @@ export default function CamperCard({
 }: PropsCamperCard) {
   return (
     <article className={css.camperCard}>
-      <Image
-        src={camper.coverImage}
-        alt={camper.name}
-        width={219}
-        height={240}
-        priority={priority}
-        className={css.camperCardImage}
-      />
+      <div className={css.imageWrap}>
+        <Image
+          src={camper.coverImage}
+          alt={camper.name}
+          fill
+          sizes="219px"
+          priority={priority}
+          className={css.camperCardImage}
+        />
+      </div>
       <div className={css.camperCardContent}>
         <div className={css.camperCardHeader}>
           <div className={css.camperCardTitle}>
@@ -82,7 +84,12 @@ export default function CamperCard({
             {formatLabel(camper.form)}
           </li>
         </ul>
-        <Link href={`/catalog/${camper.id}`} className={css.camperCardLink}>
+        <Link
+          href={`/catalog/${camper.id}`}
+          className={css.camperCardLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Show more
         </Link>
       </div>

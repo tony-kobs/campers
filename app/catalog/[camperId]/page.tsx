@@ -15,8 +15,15 @@ export async function generateMetadata({
   const { camperId } = await params;
   const camper = await getCamper(camperId);
 
+  const description = camper?.description.replace(/\s+/g, ' ').trim();
+
   return {
     title: camper?.name ?? 'Camper',
+    description: description
+      ? description.length > 160
+        ? `${description.slice(0, 157).trimEnd()}...`
+        : description
+      : 'This camper is no longer available.',
   };
 }
 

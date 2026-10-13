@@ -3,6 +3,7 @@ import { Inter, Manrope } from 'next/font/google';
 import TanStackProvider from '@/components/TanStackProvider/TanStackProvider';
 import Header from '@/components/Header/Header';
 import 'modern-normalize/modern-normalize.css';
+import '@/components/StatusScreen/StatusScreen.module.css';
 import './globals.css';
 import { Toaster } from 'sonner';
 
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${geistInter.variable} ${geistManrope.variable}`}
     >
       <body>
