@@ -32,7 +32,7 @@
 .icon {
   display: block;
   flex-shrink: 0;
-  color: var(--main);
+  color: var(--gray);
 }
 
 .locationInput {
@@ -44,11 +44,15 @@
 }
 
 .locationInput::placeholder {
-  color: var(--main);
+  color: var(--gray);
 }
 
 .locationInput:focus::placeholder {
   color: transparent;
+}
+
+.locationField:focus-within .icon {
+  color: var(--main);
 }
 
 .filtersTitle {
