@@ -1,0 +1,69 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "TravelTrucks" [ref=e6]
+      - navigation [ref=e8]:
+        - list [ref=e9]:
+          - listitem [ref=e10]:
+            - link "Home" [ref=e11] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e12]:
+            - link "Catalog" [ref=e13] [cursor=pointer]:
+              - /url: /catalog
+  - region "Notifications alt+T"
+  - main [ref=e14]:
+    - generic [ref=e16]:
+      - complementary [ref=e17]:
+        - generic [ref=e18]:
+          - generic [ref=e19]:
+            - generic [ref=e20]: Location
+            - textbox "Location" [ref=e24]:
+              - /placeholder: Kyiv
+          - generic [ref=e25]:
+            - heading "Filters" [level=2] [ref=e26]
+            - group "Camper form" [ref=e27]:
+              - generic [ref=e29] [cursor=pointer]:
+                - radio "Alcove" [ref=e30]
+                - text: Alcove
+              - generic [ref=e33] [cursor=pointer]:
+                - radio "Panel Van" [ref=e34]
+                - text: Panel Van
+              - generic [ref=e37] [cursor=pointer]:
+                - radio "Integrated" [ref=e38]
+                - text: Integrated
+              - generic [ref=e41] [cursor=pointer]:
+                - radio "Semi integrated" [ref=e42]
+                - text: Semi integrated
+            - group "Engine" [ref=e45]:
+              - generic [ref=e47] [cursor=pointer]:
+                - radio "Diesel" [ref=e48]
+                - text: Diesel
+              - generic [ref=e51] [cursor=pointer]:
+                - radio "Petrol" [ref=e52]
+                - text: Petrol
+              - generic [ref=e55] [cursor=pointer]:
+                - radio "Hybrid" [ref=e56]
+                - text: Hybrid
+              - generic [ref=e59] [cursor=pointer]:
+                - radio "Electric" [ref=e60]
+                - text: Electric
+            - group "Transmission" [ref=e63]:
+              - generic [ref=e65] [cursor=pointer]:
+                - radio "Automatic" [ref=e66]
+                - text: Automatic
+              - generic [ref=e69] [cursor=pointer]:
+                - radio "Manual" [ref=e70]
+                - text: Manual
+          - generic [ref=e73]:
+            - button "Search" [ref=e74] [cursor=pointer]
+            - button "Clear filters" [ref=e75] [cursor=pointer]
+      - status [ref=e78]:
+        - generic [ref=e79]:
+          - paragraph [ref=e81]: Loading trucks...
+          - paragraph [ref=e82]: Please wait while we fetch the best travel trucks for you
+      - generic:
+        - list
+  - button "Open Next.js Dev Tools" [ref=e88] [cursor=pointer]
+  - alert [ref=e92]

@@ -1,0 +1,112 @@
+- generic [active] [ref=f1e1]:
+  - banner [ref=f1e2]:
+    - generic [ref=f1e4]:
+      - link [ref=f1e5] [cursor=pointer]:
+        - /url: /
+        - img "TravelTrucks" [ref=f1e6]
+      - navigation [ref=f1e8]:
+        - list [ref=f1e9]:
+          - listitem [ref=f1e10]:
+            - link "Home" [ref=f1e11] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=f1e12]:
+            - link "Catalog" [ref=f1e13] [cursor=pointer]:
+              - /url: /catalog
+  - region "Notifications alt+T"
+  - main [ref=f1e14]:
+    - generic [ref=f1e16]:
+      - generic [ref=f1e17]:
+        - generic [ref=f1e18]:
+          - generic [ref=f1e19]:
+            - group "1 / 4" [ref=f1e20]:
+              - img "Alpine Roamer S1, photo 1" [ref=f1e21]
+            - group "2 / 4" [ref=f1e22]:
+              - img "Alpine Roamer S1, photo 2" [ref=f1e23]
+            - group "3 / 4" [ref=f1e24]:
+              - img "Alpine Roamer S1, photo 3" [ref=f1e25]
+            - group "4 / 4" [ref=f1e26]:
+              - img "Alpine Roamer S1, photo 4" [ref=f1e27]
+          - button "Previous slide" [ref=f1e28] [cursor=pointer]
+          - button "Next slide" [ref=f1e29] [cursor=pointer]
+        - generic [ref=f1e31]:
+          - img "Alpine Roamer S1, photo 1" [ref=f1e33] [cursor=pointer]
+          - img "Alpine Roamer S1, photo 2" [ref=f1e35] [cursor=pointer]
+          - img "Alpine Roamer S1, photo 3" [ref=f1e37] [cursor=pointer]
+          - img "Alpine Roamer S1, photo 4" [ref=f1e39] [cursor=pointer]
+      - generic [ref=f1e40]:
+        - generic [ref=f1e41]:
+          - heading "Alpine Roamer S1" [level=1] [ref=f1e42]
+          - generic [ref=f1e43]:
+            - paragraph [ref=f1e44]: 4.5 (2 Reviews)
+            - paragraph [ref=f1e47]: Ukraine, Kyiv
+          - paragraph [ref=f1e50]: €11000
+          - paragraph [ref=f1e52]: The Alpine Roamer S1 is a refined semi-integrated motorhome that strikes the perfect balance between a compact cab and a spacious living area. Designed for couples or small families, it combines a modern diesel engine with a well-thought-out interior, making every journey as comfortable as it is memorable.
+        - generic [ref=f1e53]:
+          - heading "Vehicle details" [level=2] [ref=f1e54]
+          - list [ref=f1e55]:
+            - listitem [ref=f1e56]: Automatic
+            - listitem [ref=f1e57]: Diesel
+            - listitem [ref=f1e58]: AC
+            - listitem [ref=f1e59]: Bathroom
+            - listitem [ref=f1e60]: Kitchen
+            - listitem [ref=f1e61]: Radio
+            - listitem [ref=f1e62]: Refrigerator
+            - listitem [ref=f1e63]: Water
+            - listitem [ref=f1e64]: Semi Integrated
+          - generic [ref=f1e65]:
+            - generic [ref=f1e66]:
+              - term [ref=f1e67]: Form
+              - definition [ref=f1e68]: Semi Integrated
+            - generic [ref=f1e69]:
+              - term [ref=f1e70]: Length
+              - definition [ref=f1e71]: 6.8m
+            - generic [ref=f1e72]:
+              - term [ref=f1e73]: Width
+              - definition [ref=f1e74]: 2.3m
+            - generic [ref=f1e75]:
+              - term [ref=f1e76]: Height
+              - definition [ref=f1e77]: 3.2m
+            - generic [ref=f1e78]:
+              - term [ref=f1e79]: Tank
+              - definition [ref=f1e80]: 160l
+            - generic [ref=f1e81]:
+              - term [ref=f1e82]: Consumption
+              - definition [ref=f1e83]: 22l/100km
+      - generic [ref=f1e84]:
+        - heading "Reviews" [level=2] [ref=f1e85]
+        - list [ref=f1e86]:
+          - listitem [ref=f1e87]:
+            - generic [ref=f1e88]:
+              - generic [aria-hidden] [ref=f1e89]: A
+              - generic [ref=f1e90]:
+                - paragraph [ref=f1e91]: Alice
+                - img "Rated 5 on 5" [ref=f1e92]
+            - paragraph [ref=f1e98]: The Alpine Roamer S1 was everything we needed for a week-long trip. Compact cab, spacious living area — a great combination.
+          - listitem [ref=f1e99]:
+            - generic [ref=f1e100]:
+              - generic [aria-hidden] [ref=f1e101]: B
+              - generic [ref=f1e102]:
+                - paragraph [ref=f1e103]: Bob
+                - img "Rated 4 on 5" [ref=f1e104]
+            - paragraph [ref=f1e110]: Solid motorhome overall. The kitchen setup was practical and the bathroom well-sized. Would have liked a TV, but not a dealbreaker.
+      - generic [ref=f1e111]:
+        - heading "Book your campervan now" [level=2] [ref=f1e112]
+        - paragraph [ref=f1e113]: Stay connected! We are always ready to help you.
+        - generic [ref=f1e114]:
+          - generic [ref=f1e116]:
+            - textbox "Name*" [ref=f1e117]:
+              - /placeholder: " "
+            - generic: Name*
+          - generic [ref=f1e119]:
+            - textbox "Email*" [ref=f1e120]:
+              - /placeholder: " "
+            - generic: Email*
+          - button "Send" [ref=f1e121] [cursor=pointer]
+  - button "Open Next.js Dev Tools" [ref=f1e127] [cursor=pointer]:
+    - generic [ref=f1e130]:
+      - text: Compiling
+      - generic [ref=f1e131]:
+        - generic [ref=f1e132]: .
+        - generic [ref=f1e133]: .
+        - generic [ref=f1e134]: .
+  - alert [ref=f1e135]

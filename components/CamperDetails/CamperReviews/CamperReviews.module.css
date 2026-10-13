@@ -58,15 +58,6 @@
   color: var(--main);
 }
 
-.stars {
-  display: flex;
-  gap: 4px;
-}
-
-.star {
-  color: var(--rating);
-}
-
-.starEmpty {
-  color: var(--gray-light);
+.unavailable {
+  color: var(--text);
 }

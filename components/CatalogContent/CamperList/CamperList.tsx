@@ -21,16 +21,23 @@ export default function CamperList({ filters, onClear }: Props) {
   const listRef = useRef<HTMLUListElement>(null);
   const scrollToIndex = useRef<number | null>(null);
 
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isFetching } =
-    useInfiniteQuery({
-      queryKey: ['campers', { perPage, ...filters }],
-      queryFn: ({ pageParam }) =>
-        getCampers({ ...filters, page: pageParam, perPage }),
-      initialPageParam: 1,
-      placeholderData: keepPreviousData,
-      getNextPageParam: (lastPage) =>
-        lastPage.page < lastPage.totalPages ? lastPage.page + 1 : undefined,
-    });
+  const {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    isFetching,
+    isError,
+    refetch,
+  } = useInfiniteQuery({
+    queryKey: ['campers', { perPage, ...filters }],
+    queryFn: ({ pageParam }) =>
+      getCampers({ ...filters, page: pageParam, perPage }),
+    initialPageParam: 1,
+    placeholderData: keepPreviousData,
+    getNextPageParam: (lastPage) =>
+      lastPage.page < lastPage.totalPages ? lastPage.page + 1 : undefined,
+  });
 
   const campers = data?.pages.flatMap((page) => page.campers) ?? [];
 
@@ -50,6 +57,24 @@ export default function CamperList({ filters, onClear }: Props) {
       toast.error('Could not load more campers. Please try again.');
     }
   };
+
+  if (!isFetching && isError && campers.length === 0) {
+    return (
+      <div className={css.errorState}>
+        <h2 className={css.errorTitle}>Could not load campers</h2>
+        <p className={css.errorText}>
+          Something went wrong while loading the catalog. Please try again.
+        </p>
+        <button
+          type="button"
+          className={css.loadMoreButton}
+          onClick={() => refetch()}
+        >
+          Try again
+        </button>
+      </div>
+    );
+  }
 
   if (!isFetching && campers.length === 0) {
     return <EmptyState onClear={onClear} />;

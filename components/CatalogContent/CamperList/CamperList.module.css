@@ -39,3 +39,30 @@
 .loadMoreButton:active {
   border-color: var(--green-active);
 }
+
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 888px;
+  padding: 80px 24px;
+  border-radius: 20px;
+  background: var(--inputs);
+  text-align: center;
+}
+
+.errorTitle {
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.33;
+  color: var(--main);
+}
+
+.errorText {
+  max-width: 420px;
+  margin-bottom: 32px;
+  font-weight: 500;
+  color: var(--main);
+}

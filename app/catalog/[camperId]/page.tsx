@@ -5,6 +5,7 @@ import CamperDescription from '@/components/CamperDetails/CamperDescription/Camp
 import CamperReviews from '@/components/CamperDetails/CamperReviews/CamperReviews';
 import BookingForm from '@/components/CamperDetails/BookingForm/BookingForm';
 import { getCamper, getReviews } from '@/services/campers';
+import type { Review } from '@/types/camper';
 import css from './page.module.css';
 
 type CamperPageProps = {
@@ -13,9 +14,13 @@ type CamperPageProps = {
 
 export default async function CamperPage({ params }: CamperPageProps) {
   const { camperId } = await params;
-  const [camper, reviews] = await Promise.all([
+  const reviewsPromise = getReviews(camperId).then(
+    (reviews) => ({ reviews, failed: false }),
+    () => ({ reviews: [] as Review[], failed: true }),
+  );
+  const [camper, reviewsState] = await Promise.all([
     getCamper(camperId),
-    getReviews(camperId),
+    reviewsPromise,
   ]);
 
   if (!camper) {
@@ -28,7 +33,10 @@ export default async function CamperPage({ params }: CamperPageProps) {
         <div className={css.layout}>
           <CamperGallery name={camper.name} gallery={camper.gallery} />
           <CamperDescription camper={camper} />
-          <CamperReviews reviews={reviews} />
+          <CamperReviews
+            reviews={reviewsState.reviews}
+            failed={reviewsState.failed}
+          />
           <BookingForm camperId={camperId} />
         </div>
       </Container>
