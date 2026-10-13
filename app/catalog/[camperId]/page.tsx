@@ -7,6 +7,18 @@ import BookingForm from '@/components/CamperDetails/BookingForm/BookingForm';
 import { getCamper, getReviews } from '@/services/campers';
 import type { Review } from '@/types/camper';
 import css from './page.module.css';
+import type { Metadata } from 'next';
+
+export async function generateMetadata({
+  params,
+}: CamperPageProps): Promise<Metadata> {
+  const { camperId } = await params;
+  const camper = await getCamper(camperId);
+
+  return {
+    title: camper?.name ?? 'Camper',
+  };
+}
 
 type CamperPageProps = {
   params: Promise<{ camperId: string }>;

@@ -21,7 +21,10 @@ const geistManrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: 'Travel Trucks',
+  title: {
+    default: 'Travel Trucks',
+    template: 'Travel Trucks | %s',
+  },
   description: 'Choose your trucks for best travel experiences',
 };
 
