@@ -24,16 +24,26 @@ export function heroImageUrl() {
   return new URL(HERO_PATH, getSiteUrl()).toString();
 }
 
+type SocialImage = {
+  url: string;
+  alt: string;
+  width?: number;
+  height?: number;
+};
+
 export function withHeroImage({
   title,
   description,
   path,
+  image,
 }: {
   title?: string;
   description: string;
   path: string;
+  image?: SocialImage;
 }): Metadata {
   const socialTitle = title ? `Travel Trucks | ${title}` : 'Travel Trucks';
+  const socialImage = image ?? heroImage;
 
   return {
     ...(title ? { title } : {}),
@@ -46,13 +56,13 @@ export function withHeroImage({
       title: socialTitle,
       description,
       url: path,
-      images: [heroImage],
+      images: [socialImage],
     },
     twitter: {
       card: 'summary_large_image',
       title: socialTitle,
       description,
-      images: [heroImage.url],
+      images: [socialImage.url],
     },
   };
 }

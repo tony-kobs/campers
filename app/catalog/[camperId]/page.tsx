@@ -14,6 +14,9 @@ export async function generateMetadata({
 }: CamperPageProps): Promise<ReturnType<typeof withHeroImage>> {
   const { camperId } = await params;
   const camper = await getCamper(camperId);
+  const cover = [...(camper?.gallery ?? [])].sort(
+    (a, b) => a.order - b.order,
+  )[0];
 
   const description = camper?.description.replace(/\s+/g, ' ').trim();
 
@@ -25,6 +28,9 @@ export async function generateMetadata({
         : description
       : 'This camper is no longer available.',
     path: `/catalog/${camperId}`,
+    image: cover
+      ? { url: cover.original, alt: camper?.name ?? 'Camper' }
+      : undefined,
   });
 }
 
