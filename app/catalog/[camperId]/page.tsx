@@ -7,24 +7,25 @@ import BookingForm from '@/components/CamperDetails/BookingForm/BookingForm';
 import { getCamper, getReviews } from '@/services/campers';
 import type { Review } from '@/types/camper';
 import css from './page.module.css';
-import type { Metadata } from 'next';
+import { withHeroImage } from '@/lib/seo';
 
 export async function generateMetadata({
   params,
-}: CamperPageProps): Promise<Metadata> {
+}: CamperPageProps): Promise<ReturnType<typeof withHeroImage>> {
   const { camperId } = await params;
   const camper = await getCamper(camperId);
 
   const description = camper?.description.replace(/\s+/g, ' ').trim();
 
-  return {
+  return withHeroImage({
     title: camper?.name ?? 'Camper',
     description: description
       ? description.length > 160
         ? `${description.slice(0, 157).trimEnd()}...`
         : description
       : 'This camper is no longer available.',
-  };
+    path: `/catalog/${camperId}`,
+  });
 }
 
 type CamperPageProps = {

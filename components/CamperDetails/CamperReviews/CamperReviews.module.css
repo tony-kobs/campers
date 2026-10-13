@@ -6,7 +6,7 @@
 
 .title {
   font-weight: 600;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1.33;
   color: var(--main);
 }
@@ -60,4 +60,10 @@
 
 .unavailable {
   color: var(--text);
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 24px;
+  }
 }

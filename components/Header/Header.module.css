@@ -7,11 +7,13 @@
 .headerInner {
   width: 100%;
   display: flex;
-  padding: 28px 0;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
 }
 
 .headerNav {
-  width: 100%;
+  width: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,7 +23,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: 16px;
+}
+
+.headerLogo svg {
+  width: 108px;
+  height: auto;
 }
 
 .headerNavLink {
@@ -51,4 +58,26 @@
 
 .active {
   color: var(--grey-green);
+}
+
+@media (min-width: 375px) {
+  .headerNav .headerNavList {
+    gap: 32px;
+  }
+
+  .headerLogo svg {
+    width: 136px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .headerInner {
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 28px 0;
+  }
+
+  .headerNav {
+    width: 100%;
+  }
 }

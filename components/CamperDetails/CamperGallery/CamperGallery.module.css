@@ -1,19 +1,20 @@
 .gallery {
   display: flex;
   flex-direction: column;
-  gap: 27px;
+  gap: 12px;
 }
 
 .main {
   width: 100%;
-  height: 505px;
-  border-radius: 17px;
+  height: clamp(180px, 56vw, 210px);
+  border-radius: 12px;
   overflow: hidden;
 }
 
 .mainSlide {
   position: relative;
-  height: 505px;
+  height: clamp(180px, 56vw, 210px);
+  border-radius: 12px;
 }
 
 .cover {
@@ -22,13 +23,13 @@
 
 .thumbs {
   width: 100%;
-  height: 144px;
+  height: clamp(64px, 20vw, 76px);
 }
 
 .thumbSlide {
   position: relative;
-  height: 144px;
-  border-radius: 16px;
+  height: clamp(64px, 20vw, 76px);
+  border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
   filter: brightness(0.55);
@@ -50,6 +51,72 @@
 
 .main :global(.swiper-button-next::after),
 .main :global(.swiper-button-prev::after) {
-  font-size: 28px;
+  font-size: 18px;
   font-weight: 700;
+}
+
+@media (min-width: 375px) {
+  .main,
+  .mainSlide {
+    height: 240px;
+  }
+
+  .thumbs,
+  .thumbSlide {
+    height: 80px;
+  }
+}
+
+@media (min-width: 768px) {
+  .gallery {
+    gap: 20px;
+  }
+
+  .main,
+  .mainSlide {
+    height: 360px;
+    border-radius: 17px;
+  }
+
+  .thumbs,
+  .thumbSlide {
+    height: 104px;
+  }
+
+  .thumbSlide {
+    border-radius: 16px;
+  }
+
+  .main :global(.swiper-button-next::after),
+  .main :global(.swiper-button-prev::after) {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main,
+  .mainSlide {
+    height: 420px;
+  }
+
+  .thumbs,
+  .thumbSlide {
+    height: 120px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .gallery {
+    gap: 27px;
+  }
+
+  .main,
+  .mainSlide {
+    height: 505px;
+  }
+
+  .thumbs,
+  .thumbSlide {
+    height: 144px;
+  }
 }

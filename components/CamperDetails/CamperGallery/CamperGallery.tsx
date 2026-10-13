@@ -55,7 +55,13 @@ export default function CamperGallery({ name, gallery }: CamperGalleryProps) {
         modules={[FreeMode, Thumbs]}
         onSwiper={setThumbsSwiper}
         slidesPerView={images.length}
-        spaceBetween={32}
+        spaceBetween={8}
+        breakpoints={{
+          375: { spaceBetween: 12 },
+          768: { spaceBetween: 16 },
+          1024: { spaceBetween: 24 },
+          1440: { spaceBetween: 32 },
+        }}
         freeMode
         watchSlidesProgress
       >

@@ -1,7 +1,7 @@
 .sideBar {
   flex-shrink: 0;
   width: 100%;
-  max-width: 360px;
+  max-width: none;
   padding: 24px;
   border-radius: 20px;
 
@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .locationLabel {
@@ -131,7 +131,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-top: 48px;
+  margin-top: 32px;
 }
 
 .searchButton,
@@ -180,4 +180,63 @@
   display: block;
   flex-shrink: 0;
   color: var(--main);
+}
+
+@media (min-width: 768px) {
+  .location {
+    margin-bottom: 40px;
+  }
+
+  .filters {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px 24px;
+  }
+
+  .filtersTitle {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+  }
+
+  .filterGroup + .filterGroup {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sideBar {
+    width: 280px;
+    max-width: 280px;
+    padding: 16px;
+  }
+
+  .filters {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .filtersTitle {
+    margin-bottom: 24px;
+  }
+
+  .filterGroup + .filterGroup {
+    margin-top: 24px;
+  }
+
+  .actions {
+    margin-top: 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .sideBar {
+    width: 100%;
+    max-width: 360px;
+    padding: 24px;
+  }
+
+  .actions {
+    margin-top: 48px;
+  }
 }

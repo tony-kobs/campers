@@ -11,7 +11,7 @@
   max-width: 560px;
   border: 1px solid var(--gray-light);
   border-radius: 16px;
-  padding: 48px 32px;
+  padding: 32px 16px;
   background: var(--white);
   text-align: center;
 }
@@ -30,6 +30,7 @@
 
 .actions {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   gap: 16px;
   margin-top: 32px;
@@ -37,9 +38,11 @@
 
 .primary,
 .secondary {
+  width: 100%;
   border-radius: 200px;
   padding: 16px 32px;
   font-weight: 500;
+  text-align: center;
 }
 
 .primary {
@@ -58,4 +61,19 @@
 
 .secondary:hover {
   border-color: var(--green-hover);
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 48px 32px;
+  }
+
+  .actions {
+    flex-direction: row;
+  }
+
+  .primary,
+  .secondary {
+    width: auto;
+  }
 }

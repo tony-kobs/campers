@@ -13,15 +13,15 @@
   max-width: 543px;
   margin: 0 16px;
   border-radius: 16px;
-  padding: 48px 96px;
+  padding: 32px 20px;
   background: var(--white);
   text-align: center;
 }
 
 .spinner {
-  width: 72px;
-  height: 72px;
-  margin: 0 auto 32px;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 24px;
   border: 4px solid var(--gray-light);
   border-top-color: var(--grey-green);
   border-radius: 50%;
@@ -45,5 +45,17 @@
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 48px 96px;
+  }
+
+  .spinner {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 32px;
   }
 }

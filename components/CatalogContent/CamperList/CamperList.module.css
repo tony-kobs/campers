@@ -1,7 +1,8 @@
 .camperListContainer {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 24px;
+  min-width: 0;
 
   width: 100%;
   max-width: 888px;
@@ -16,6 +17,7 @@
 .camperListItem {
   width: 100%;
   max-width: 888px;
+  min-width: 0;
 }
 
 .loadMoreButton {
@@ -46,7 +48,7 @@
   align-items: center;
   width: 100%;
   max-width: 888px;
-  padding: 80px 24px;
+  padding: 32px 16px;
   border-radius: 20px;
   background: var(--inputs);
   text-align: center;
@@ -54,7 +56,7 @@
 
 .errorTitle {
   margin-bottom: 16px;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 1.33;
   color: var(--main);
@@ -65,4 +67,25 @@
   margin-bottom: 32px;
   font-weight: 500;
   color: var(--main);
+}
+
+@media (min-width: 768px) {
+  .camperListContainer {
+    gap: 40px;
+  }
+
+  .errorState {
+    padding: 80px 24px;
+  }
+
+  .errorTitle {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .camperListContainer,
+  .camperListItem {
+    min-width: auto;
+  }
 }

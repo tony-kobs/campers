@@ -2,8 +2,8 @@
   border: 1px solid var(--gray-light);
   background: var(--white);
   border-radius: 16px;
-  padding: 44px;
-  margin-top: 56px;
+  padding: 16px 12px;
+  margin-top: 0;
 }
 
 .title {
@@ -116,4 +116,23 @@
 .serverMessage {
   margin-top: 16px;
   color: var(--main);
+}
+
+@media (min-width: 375px) {
+  .card {
+    padding: 20px 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    margin-top: 56px;
+    padding: 44px;
+  }
 }

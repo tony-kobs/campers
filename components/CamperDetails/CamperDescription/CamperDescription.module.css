@@ -7,20 +7,21 @@
 .titleRow {
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  padding: 16px;
   border-radius: 16px;
   background: var(--inputs);
 }
 
 .title {
   font-weight: 600;
-  font-size: 24px;
+  font-size: clamp(18px, 5.4vw, 20px);
   line-height: 1.33;
   color: var(--main);
 }
 
 .meta {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
   margin-top: 8px;
 }
@@ -35,7 +36,7 @@
 .price {
   margin-top: 16px;
   font-weight: 600;
-  font-size: 24px;
+  font-size: clamp(18px, 5.4vw, 20px);
   line-height: 1.33;
   color: var(--main);
 }
@@ -63,7 +64,7 @@
 .vehicle {
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  padding: 16px;
   border-radius: 16px;
   background: var(--inputs);
   gap: 16px;
@@ -71,7 +72,7 @@
 
 .vehicleTitle {
   font-weight: 600;
-  font-size: 24px;
+  font-size: clamp(18px, 5.4vw, 20px);
   line-height: 1.33;
   color: var(--main);
 }
@@ -112,4 +113,29 @@
 .spec dd {
   text-align: right;
   color: var(--main);
+}
+
+@media (min-width: 375px) {
+  .title,
+  .price,
+  .vehicleTitle {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .titleRow,
+  .vehicle {
+    padding: 24px;
+  }
+
+  .title,
+  .price,
+  .vehicleTitle {
+    font-size: 24px;
+  }
+
+  .meta {
+    flex-wrap: nowrap;
+  }
 }

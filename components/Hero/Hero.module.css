@@ -8,30 +8,34 @@
     url('/image/Hero-2x.jpg') 2x
   );
   background-size: cover;
-  padding: 195px 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 48px 0 64px;
 }
 
 .heroTitle {
   font-weight: 600;
-  font-size: 48px;
-  line-height: 0.67;
+  font-size: clamp(28px, 8.5vw, 32px);
+  line-height: 1.15;
   color: var(--inputs);
   margin-bottom: 16px;
 }
 
 .heroDescription {
   font-weight: 600;
-  font-size: 24px;
-  line-height: 1.33;
+  font-size: clamp(16px, 4.8vw, 18px);
+  line-height: 1.4;
   color: var(--inputs);
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 }
 
 .heroButton {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  width: 100%;
   text-align: center;
   border-radius: 200px;
-  padding: 16px 60px;
+  padding: 16px 24px;
   background: var(--grey-green);
   font-weight: 500;
   font-size: 16px;
@@ -49,4 +53,65 @@
 
 .heroButton:active {
   background: var(--grey-green);
+}
+
+@media (min-width: 375px) {
+  .heroTitle {
+    font-size: 32px;
+  }
+
+  .heroDescription {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero {
+    display: block;
+    padding: 112px 0;
+  }
+
+  .heroTitle {
+    font-size: 36px;
+    line-height: 1.15;
+  }
+
+  .heroDescription {
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 40px;
+  }
+
+  .heroButton {
+    display: inline-block;
+    width: auto;
+    padding: 16px 60px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding: 140px 0;
+  }
+
+  .heroTitle {
+    font-size: 44px;
+    line-height: 1.1;
+  }
+
+  .heroDescription {
+    font-size: 24px;
+    line-height: 1.33;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero {
+    padding: 195px 0;
+  }
+
+  .heroTitle {
+    font-size: 48px;
+    line-height: 0.67;
+  }
 }
